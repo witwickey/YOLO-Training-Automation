@@ -1,5 +1,5 @@
 FROM docker.io/nvidia/cuda:10.0-cudnn7-devel-ubuntu18.04
-LABEL maintainer "BMW AG [Munich]"
+LABEL maintainer "Witwickey"
 
 RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
 

@@ -3,7 +3,7 @@
 This repository, based on AlexeyAB's darknet repo, allows you to get started with training a state-of-the-art Deep Learning model with little to no configuration needed!  You provide your labeled dataset and you can start the training right away and monitor it in many different ways like TensorBoard or a custom REST API and GUI. Training with YOLOv4  has never been so easy.
 This repository has also cross compatibility with Yolov3 training.
 
-Forked from BMW-InnovationLab/BMW-YOLOv4-Training-Automation and updated to include more custom configurations.
+Forked from https://github.com/BMW-InnovationLab/BMW-InnovationLab/BMW-YOLOv4-Training-Automation and updated to include more custom configurations.
 
 You can also use BMW-Labeltool-lite to label your dataset with yolo labels format https://github.com/BMW-InnovationLab/BMW-Labeltool-Lite.git
 
@@ -44,27 +44,27 @@ The environment is dockerized to run on GPU or CPU.
 For GPU, you need to build the image in the following way:
 
 ```bash
-sudo docker build -f docker/Dockerfile -t darknet_yolov4_gpu:1 --build-arg GPU=1 --build-arg CUDNN=1 --build-arg CUDNN_HALF=0 --build-arg OPENCV=1 .
+sudo docker build -f docker/Dockerfile -t yolo_training_automation:0.1 --build-arg GPU=1 --build-arg CUDNN=1 --build-arg CUDNN_HALF=0 --build-arg OPENCV=1 .
 ```
 
 If you have a GPU: Volta, Xavier, Turing and higher
 
 ```bash
-sudo docker build -f docker/Dockerfile -t darknet_yolov4_gpu:1 --build-arg GPU=1 --build-arg CUDNN=1 --build-arg CUDNN_HALF=1 --build-arg OPENCV=1 .
+sudo docker build -f docker/Dockerfile -t yolo_training_automation:0.1 --build-arg GPU=1 --build-arg CUDNN=1 --build-arg CUDNN_HALF=1 --build-arg OPENCV=1 .
 ```
 If you are behind proxy 
 ```bash
-sudo docker build -f docker/Dockerfile -t darknet_yolov4_gpu:1 --build-arg GPU=1 --build-arg CUDNN=1 --build-arg CUDNN_HALF=1 --build-arg OPENCV=1 --build-arg http_proxy='' --build-arg https_proxy='' .
+sudo docker build -f docker/Dockerfile -t yolo_training_automation:0.1 --build-arg GPU=1 --build-arg CUDNN=1 --build-arg CUDNN_HALF=1 --build-arg OPENCV=1 --build-arg http_proxy='' --build-arg https_proxy='' .
 ```
 For CPU only, you can run the same command while setting GPU=0 CUDNN=0 and naming it darknet_yolo_cpu:1 for clarity.
 
 ```bash
-sudo docker build -f docker/Dockerfile -t darknet_yolov4_cpu:1 --build-arg GPU=0 --build-arg CUDNN=0 --build-arg CUDNN_HALF=0 --build-arg OPENCV=1 .
+sudo docker build -f docker/Dockerfile -t yolo_training_automation:0.1 --build-arg GPU=0 --build-arg CUDNN=0 --build-arg CUDNN_HALF=0 --build-arg OPENCV=1 .
 ```
 If you want multi-core cpu training you can add OPENMP=1 to the build 
 
 ```bash
-sudo docker build -f docker/Dockerfile -t darknet_yolov4_cpu:1 --build-arg GPU=0 --build-arg CUDNN=0 --build-arg CUDNN_HALF=0 --build-arg OPENCV=1 --build-arg OPENMP=1 .
+sudo docker build -f docker/Dockerfile -t yolo_training_automation:0.1 --build-arg GPU=0 --build-arg CUDNN=0 --build-arg CUDNN_HALF=0 --build-arg OPENCV=1 --build-arg OPENMP=1 .
 ```
 
 ## Preparing your dataset
@@ -73,6 +73,7 @@ We provided a `sample_dataset` to show how your data should be structured in ord
 The `train_config.json` file found in `sample_dataset` is a copy of the template `config/train_config.json.template` with needed modifications.  The template can as well be copied as is while making sure to remove the '.template' from the name.
 You can also provide your own `train.txt` and `test.txt` to specify which images will be used for training and which ones are for testing.  If not provided, the dataset will be split according to the `data/train_ratio` (by default 80% train 20% test).
 If you are using **Yolov4** training please make sure to choose your `yolov4` instead of **yolov3** in `train_config.json`  `model/model-name` **Yolov4** specific hyperparams ("mosaic","blur")
+Custom cfg file name has to be provided in `train_config.json`  `model/custom-cfg-name` like `yolov3-tiny.cfg` and place the custom model and cfg in the dataset directory (for eg `sample_dataset` directory).
 
 ## Starting the training
 

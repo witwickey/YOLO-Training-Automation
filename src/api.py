@@ -19,10 +19,10 @@ ground_truth_image_path = working_dir / "ground_truth.jpg"
 
 
 app: FastAPI = FastAPI(
-    title="BMW InnovationLab YOLO Training Automation",
-    description='<b>API for Monitoring YOLO Training <br><br><br>Contact the developers:<br><font color="#808080">Nour Azzi: <a href="https://github.com/nourazzii"></a>https://github.com/nourazzii<br>Lynn Nassif: <a href=""></a><br>Hadi Koubeissy:  <a href="https://github.com/hadikoub"></a>https://github.com/hadikoub <br>BMW Innovation Lab: <a href="mailto:innovation-lab@bmw.de">innovation-lab@bmw.de</a></font></b>',
+    title="YOLO Training Automation",
+    description='<b>API for Monitoring YOLO Training</b>',
     docs_url="/",
-    version="3.1.0",
+    version="0.1",
 )
 
 app.add_middleware(
