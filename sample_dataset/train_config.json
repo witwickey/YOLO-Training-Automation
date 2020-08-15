@@ -9,10 +9,10 @@
     },
     "model": {
         "framework": "darknet",
-        "model_name": "yolov4",
+        "model_name": "yolov3",
 	    "custom_weights": {
-            "enable": false,
-            "name": "darknet53.conv.74",
+            "enable": true,
+            "name": "yolov3-tiny.weights",
             "custom_cfg": "yolov3-tiny.cfg"
         },
         "generate_custom_anchors": false,
@@ -41,19 +41,19 @@
         "calculate_map": true,
         "custom_api": {
             "enable": true,
-            "port": 8099
+            "port": 6001
         },
         "dashboard": {
             "enable": true,
-            "port": 3000
+            "port": 6002
         },
         "tensorboard": {
             "enable": true,
-            "port": 6006
+            "port": 6003
         },
         "web_ui": {
             "enable": true,
-            "port": 8090
+            "port": 6004
         }
     }
 }
