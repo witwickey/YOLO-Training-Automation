@@ -7,12 +7,9 @@ Forked from https://github.com/BMW-InnovationLab/BMW-InnovationLab/BMW-YOLOv4-Tr
 
 You can also use BMW-Labeltool-lite to label your dataset with yolo labels format https://github.com/BMW-InnovationLab/BMW-Labeltool-Lite.git
 
-
-![](swagger_yolo_training.png)
-
 ## Prerequisites
 
-- Ubuntu 18.04 [16.04 could work, but not tested, tested on 20.04]
+- Ubuntu 18.04, 20.04 [16.04 could work, but not tested]
 - Install dependencies:
 ```bash
 chmod +x scripts/install_dependencies.sh && source scripts/install_dependencies.sh
@@ -224,14 +221,6 @@ Issue related to darknet itself can be filed in [the correct repo](https://githu
 
 ## Acknowledgements
 
-[robotron.de](https://www.robotron.de/)
-
-[inmind.ai](https://www.inmind.ai/)
+https://github.com/BMW-InnovationLab/BMW-InnovationLab/BMW-YOLOv4-Training-Automation
 
 AlexeyAB (https://github.com/AlexeyAB)
-
-Lynn Nassif, Beirut, Lebanon
-
-Nour Azzi, Beirut, Lebanon
-
-Hadi Koubeissy , Beirut, Lebanon
