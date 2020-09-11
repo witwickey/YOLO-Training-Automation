@@ -12,6 +12,10 @@
         "yolov4": {
             "weights": "./config/darknet/yolov4_default_weights/yolov4.weights",
             "config": "./config/darknet/yolov4_default_cfgs/yolov4.cfg"
-          } 
+          },
+        "yolov4-tiny": {
+            "weights": "./config/darknet/yolov4_default_weights/yolov4-tiny.weights",
+            "config": "./config/darknet/yolov4_default_cfgs/yolov4-tiny.cfg"
+          }
     }
 }

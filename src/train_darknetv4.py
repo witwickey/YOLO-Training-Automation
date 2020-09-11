@@ -261,9 +261,17 @@ class DarknetCoachV4(Coach):
                 self._custom_anchors = anchors_file.read()
 
     def update_config(self):
-        config_path: str = self._model2config.get("darknet").get(self._model_name).get(
-            "config"
-        )
+        # config_path: str = self._model2config.get("darknet").get(self._model_name).get(
+        #     "config"
+        # )
+
+        if self._custom_weights:
+            config_path: str = self._working_dir / "assets" / self._custom_cfg_name
+        else:
+            config_path: str = self._model2config.get("darknet").get(self._model_name).get(
+                "config"
+            )
+
         with open(config_path, "r", encoding="utf-8") as default_yolo_cfg_file:
             default_yolo_cfg: str = "".join(default_yolo_cfg_file.readlines())
 
